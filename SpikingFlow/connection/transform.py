@@ -129,8 +129,10 @@ class STPTransformer(BaseTransformer):
         :return: None
         重置所有状态变量x,u为初始值1.0和u_base
         '''
-        self.x.fill_(1.0)
-        self.u.fill_(self.u_base)
+        if not isinstance(self.x, float):
+            self.x.fill_(1.0)
+        if not isinstance(self.u, float):
+            self.u.fill_(self.u_base)
 
 
 
